@@ -27,7 +27,7 @@ public class MainTower : MonoBehaviour
         instance = this;
     }
 
-    //¸üĞÂÑªÁ¿
+    //æ›´æ–°è¡€é‡
     public void UpdateHp(int hp,int maxHP)
     {
         this.hp = hp;
@@ -36,7 +36,7 @@ public class MainTower : MonoBehaviour
 
     }
 
-    //ÊÜµ½ÉËº¦
+    //å—åˆ°ä¼¤å®³
     public void Wound(int dmg)
     {
         if (isDead)
@@ -46,7 +46,7 @@ public class MainTower : MonoBehaviour
         {
             hp= 0;
             isDead = true;
-            //Ê§°Ü
+            //å¤±è´¥
            UIMgr.Instance.ShowPanel<GameOverPanel>().
                 InitInfo((int)(GameLevelMgr.Instance.player.money*0.5f), false);
         }
