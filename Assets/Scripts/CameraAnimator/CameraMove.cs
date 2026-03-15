@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+//相机旋转
 public class CameraMove : MonoBehaviour
 {
    Animator animator;
@@ -16,17 +17,19 @@ public class CameraMove : MonoBehaviour
     {
         animator.SetTrigger("left");
         callAction = call;
+        OnShow();
     }
 
     public void Turnright(UnityAction call)
      {
           animator.SetTrigger("right");
           callAction = call;
+          OnShow();
     }
 
     public void OnShow()
     {
-               callAction?.Invoke();
-               callAction = null;
+    callAction?.Invoke();
+    callAction = null;
     }
 }

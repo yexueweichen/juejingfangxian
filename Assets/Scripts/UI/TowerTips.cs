@@ -1,22 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class TowerTips : MonoBehaviour
+public class TowerTips : BasePanel
 {
-    public Image towerImage;
-    public TextMeshProUGUI tips;
-    public TextMeshProUGUI money;
-    void Start()
+    protected override void Init()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        throw new System.NotImplementedException();
     }
 }

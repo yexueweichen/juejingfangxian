@@ -4,33 +4,36 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+   //æ‘„åƒæœºè·Ÿéšç›®æ ‡
    public Transform target;
-    //ÉãÏñ»úÆ«ÒÆÎ»ÖÃ
-    public Vector3 offsetPos;
-    //ÉãÏñ»ú¿´µÄ¸ß¶È
-    public float bodyHeight;
-    //ÒÆ¶¯Ğı×ªËÙ¶È
-    public float moveSpeed;
-    public float rotateSpeed;
-    private Vector3 cameraPos;
-    private Quaternion cameraRotation;
-    void Start()
-    {
-        
-    }
 
-    
+    [Header("æ‘„åƒæœºåç§»ä½ç½®")]
+    [SerializeField]
+    private Vector3 offsetPos;
+
+    [Header("æ‘„åƒæœºçœ‹çš„é«˜åº¦")]
+    [SerializeField]
+    private float bodyHeight;
+    //ç§»åŠ¨æ—‹è½¬é€Ÿåº¦
+    [Header("ç§»åŠ¨æ—‹è½¬é€Ÿåº¦")]
+    [SerializeField]
+    private float moveSpeed;
+    [SerializeField]
+    private float rotateSpeed;
+    private Quaternion cameraRotation;
+
     void Update()
     {
-      //ÉãÏñ»ú¸úËæ
+      //æ‘„åƒæœºè·Ÿéš
         if (target == null)
             return;
-        cameraPos = target.position + target.forward * offsetPos.z;
+      
+        Vector3 cameraPos = target.position + target.forward * offsetPos.z;
         cameraPos+= Vector3.up*offsetPos.y;
         cameraPos+= target.right*offsetPos.x;
         transform.position = Vector3.Lerp(transform.position, cameraPos, moveSpeed * Time.deltaTime);
 
-        cameraRotation= Quaternion.LookRotation((target.position + Vector3.up * bodyHeight) - transform.position);
+        cameraRotation= Quaternion.LookRotation(target.position + Vector3.up * bodyHeight - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, cameraRotation, rotateSpeed * Time.deltaTime);
     }
 
