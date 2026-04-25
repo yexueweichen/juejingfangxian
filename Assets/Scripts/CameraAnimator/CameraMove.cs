@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-//相机旋转
 public class CameraMove : MonoBehaviour
 {
    Animator animator;

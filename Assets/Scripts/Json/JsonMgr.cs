@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-/// <summary>
-/// 序列化和反序列化Json时  使用的是哪种方案
-/// </summary>
+
 public enum JsonType
 {
     JsonUtlity,
@@ -14,7 +12,7 @@ public enum JsonType
 }
 
 /// <summary>
-/// Json数据管理类 主要用于进行 Json的序列化存储到硬盘 和 反序列化从硬盘中读取到内存中
+/// Json数据管理类
 /// </summary>
 public class JsonMgr
 {
