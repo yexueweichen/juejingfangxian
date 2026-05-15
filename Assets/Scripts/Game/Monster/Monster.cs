@@ -222,7 +222,7 @@ public class Monster : MonoBehaviour
         float playerDist = player != null ? MathUtil.GetObjDistanceXZ(transform.position, player.transform.position) : float.MaxValue;
         float towerDist = MainTower.Instance != null ? MathUtil.GetObjDistanceXZ(transform.position, MainTower.Instance.transform.position) : float.MaxValue;
 
-        // 选择目标：只有在玩家在 chaseRange 内且比塔更近时才追玩家，否则回到塔
+        // 选择目标 只有在玩家在 chaseRange 内且比塔更近时才追玩家，否则回到塔
         if (player != null && playerDist <= chaseRange && playerDist <= towerDist)
             attackTarget = player.transform;
         else if (MainTower.Instance != null)

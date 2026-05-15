@@ -49,7 +49,7 @@ public class FloatingHPBar : MonoBehaviour
         if (_mainCam == null)
             _mainCam = GameObject.FindObjectOfType<Camera>();
 
-        // 获取或添加CanvasGroup组件（用于控制透明度）
+        // 获取或添加CanvasGroup组件
         if (_canvasGroup == null)
             _canvasGroup = gameObject.GetComponent<CanvasGroup>();
         if (_canvasGroup == null)
@@ -111,7 +111,7 @@ public class FloatingHPBar : MonoBehaviour
     }
 
     /// <summary>
-    /// 控制血条显示/隐藏（使用CanvasGroup.alpha）
+    /// 控制血条显示/隐藏
     /// </summary>
     void SetHpBarActive()
     {
@@ -128,7 +128,7 @@ public class FloatingHPBar : MonoBehaviour
         // 获取目标在摄像机视口中的位置
         Vector3 viewportPos = _mainCam.WorldToViewportPoint(followTarget.position);
 
-        // 在摄像机后面 -> 隐藏
+        // 在摄像机后面 隐藏
         if (hideWhenBack && viewportPos.z < 0)
         {
             _isShowing = false;
@@ -137,7 +137,7 @@ public class FloatingHPBar : MonoBehaviour
             return;
         }
 
-        // 不在视野范围内 -> 隐藏
+        // 不在视野范围内 隐藏
         bool isInView = viewportPos.x >= -0.1f && viewportPos.x <= 1.1f &&
                         viewportPos.y >= -0.1f && viewportPos.y <= 1.1f;
 

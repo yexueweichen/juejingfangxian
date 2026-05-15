@@ -29,7 +29,7 @@ public class ABMgr : SingletonAutoMono<ABMgr>
     }
 
     /// <summary>
-    /// 主包名 根据平台不同 报名不同
+    /// 主包名
     /// </summary>
     private string MainName
     {
@@ -42,8 +42,6 @@ public class ABMgr : SingletonAutoMono<ABMgr>
 
     /// <summary>
     /// 加载主包 和 配置文件
-    /// 因为加载所有包是 都得判断 通过它才能得到依赖信息
-    /// 所以写一个方法
     /// </summary>
     private void LoadMainAB()
     {
@@ -82,18 +80,18 @@ public class ABMgr : SingletonAutoMono<ABMgr>
                 //异步加载
                 else
                 {
-                    //一开始异步加载 就记录 如果此时的记录中的值 是null 那证明这个ab包正在被异步加载
+                    //一开始异步加载 就记录 如果此时的记录中的值
                     abDic.Add(strs[i], null);
                     AssetBundleCreateRequest req = AssetBundle.LoadFromFileAsync(PathUrl + strs[i]);
                     await req;
-                    //异步加载结束后 再替换之前的null  这时 不为null 就证明加载结束了
+                    //异步加载结束后再替换之前的null
                     abDic[strs[i]] = req.assetBundle;
                 }
             }
-            //就证明 字典中已经记录了一个AB包相关信息了
+            //证明字典中已经记录了一个AB包相关信息了
             else
             {
-                //如果字典中记录的信息是null 那就证明正在加载中
+                //如果字典中记录的信息是null那就证明正在加载中
                 while (abDic[strs[i]] == null)
                 {
                     
@@ -112,11 +110,11 @@ public class ABMgr : SingletonAutoMono<ABMgr>
             }
             else
             {
-                //一开始异步加载 就记录 如果此时的记录中的值 是null 那证明这个ab包正在被异步加载
+                //一开始异步加载记录 如果此时的记录中的值 是null这个ab包正在被异步加载
                 abDic.Add(abName, null);
                 AssetBundleCreateRequest req = AssetBundle.LoadFromFileAsync(PathUrl + abName);
                 await req;
-                //异步加载结束后 再替换之前的null  这时 不为null 就证明加载结束了
+                //异步加载结束替换之前的null  不为null加载结束
                 abDic[abName] = req.assetBundle;
             }
         }
@@ -132,7 +130,6 @@ public class ABMgr : SingletonAutoMono<ABMgr>
         //同步加载AB包中的资源
         if(isSync)
         {
-            //即使是同步加载 也需要使用回调函数传给外部进行使用
             T res = abDic[abName].LoadAsset<T>(resName);
             callBack(res);
         }
@@ -164,7 +161,7 @@ public class ABMgr : SingletonAutoMono<ABMgr>
         }
     }
 
-    //清空AB包的方法
+    //清空AB包手动GC
     public void ClearAB()
     {
         AssetBundle.UnloadAllAssetBundles(false);

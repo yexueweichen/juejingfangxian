@@ -37,11 +37,12 @@ public class towerballPool : GameObjectPool
 
     protected override void OnGetObject(GameObject obj)
     {
-        obj.SetActive(true);
+        // 重置旋转方向，确保子弹出栈时方向正确
+        obj.transform.rotation = Quaternion.identity;
     }
 
     protected override void OnReturnObject(GameObject obj)
     {
-        obj.SetActive(false);
+        
     }
 }

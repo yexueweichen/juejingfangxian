@@ -51,7 +51,7 @@ public class EventCenter: BaseManager<EventCenter>
     /// <param name="eventName">事件名字</param>
     public void EventTrigger<T>(E_EventType eventName, T info)
     {
-        //存在关心我的人 才通知别人去处理逻辑
+        //存在监听的事件通知别人去处理逻辑
         if(eventDic.ContainsKey(eventName))
         {
             EventInfo<T> eventInfo = eventDic[eventName] as EventInfo<T>;
@@ -68,7 +68,7 @@ public class EventCenter: BaseManager<EventCenter>
     /// <param name="eventName"></param>
     public void EventTrigger(E_EventType eventName)
     {
-        //存在关心我的人 才通知别人去处理逻辑
+    
         if (eventDic.ContainsKey(eventName))
         {
             EventInfo eventInfo = eventDic[eventName] as EventInfo;
@@ -104,7 +104,7 @@ public class EventCenter: BaseManager<EventCenter>
 
     public void AddEventListener(E_EventType eventName, UnityAction func)
     {
-        //如果已经存在关心事件的委托记录 直接添加即可
+        
         if (eventDic.ContainsKey(eventName))
         {
             EventInfo eventInfo = eventDic[eventName] as EventInfo;

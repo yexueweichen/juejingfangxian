@@ -73,7 +73,8 @@ public class Npc : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             StartDialogueForState();
-            enableE = false; // 按下后禁用，防止重复触发
+             // 按下后禁用，防止重复触发
+            enableE = false; 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 

@@ -28,7 +28,7 @@ public enum E_EventType
     E_UpdateTowerHp,
     E_UpdateTEnergy,
 
-    // === 新增：CharacterChoose UI 事件 ===
+    // CharacterChoose UI 事件 
     E_UI_Char_RequestInit,   // 请求初始化（视图 -> 控制器）
     E_UI_Char_Next,          // 右/下一个（视图 -> 控制器）
     E_UI_Char_Prev,          // 左/上一个（视图 -> 控制器）
@@ -36,12 +36,12 @@ public enum E_EventType
     E_UI_Char_Start,         // 开始（视图 -> 控制器）
     E_UI_Char_Back,          // 返回（视图 -> 控制器）
 
-    // === 视图 更新事件（控制器 -> 视图） ===
+    // 视图更新事件
     E_UI_UpdateMoney,        // int
     E_UI_UpdateRoleInfo,     // RoleInfos.RoleData
     E_UI_ShowTip,          // string
 
-// === 输入系统 事件 ===//
+// 输入系统 事件 
       E_Input_Space,       
     /// <summary>
     /// 水平热键 

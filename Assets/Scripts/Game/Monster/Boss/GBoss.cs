@@ -60,7 +60,7 @@ void Awake()
             return;
         }
 
-        // 同步加载预制体（将 isSync 设置为 true）
+        // 同步加载预制体
         GameObject prefab = null;
         await ABMgr.Instance.LoadResAsync<GameObject>("modle", bossSummonName, (m) => { prefab = m; }, true);
 

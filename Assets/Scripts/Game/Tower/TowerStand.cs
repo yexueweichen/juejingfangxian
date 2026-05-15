@@ -68,8 +68,9 @@ public class TowerStand : MonoBehaviour
 
         if (targetObj == null) return;
 
-        // 计算朝向目标的方向（包含Y轴）
+        // 计算水平朝向
         Vector3 dir = targetObj.transform.position - transform.position;
+        dir.y = 0; 
         if (dir != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(dir);

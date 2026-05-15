@@ -69,7 +69,7 @@ public class JsonMgr
                 break;
         }
 
-        //把对象返回出去
+        //对象返回
         return data;
     }
 }

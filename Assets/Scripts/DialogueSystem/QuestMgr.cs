@@ -33,7 +33,7 @@ public class QuestMgr : SingletonAutoMono<QuestMgr>
     }
 
     /// <summary>
-    /// 【修复】获取任务进度（外部专用，无需操作字典）
+    /// 获取任务进度
     /// </summary>
     public int GetProgress(QuestData q)
     {
@@ -42,7 +42,7 @@ public class QuestMgr : SingletonAutoMono<QuestMgr>
     }
 
     /// <summary>
-    /// 【修复】开始任务（防重复启动，不重置进度）
+    /// 开始任务
     /// </summary>
     public void StartQuest(QuestData q)
     {
@@ -66,17 +66,16 @@ public class QuestMgr : SingletonAutoMono<QuestMgr>
     }
 
     /// <summary>
-    /// 【新增】提交任务（完成后调用，可扩展奖励发放）
+    /// 提交任务
     /// </summary>
     public void SubmitQuest(QuestData q)
     {
         if (q == null || GetState(q) != QuestState.Completed) return;
-        // 这里可以添加发放奖励逻辑：PlayerData.Instance.AddGold(q.rewardGold);
         Debug.Log($"提交任务：{q.questName}，奖励金币：{q.rewardGold}");
     }
 
     /// <summary>
-    /// 【新增】重置任务（重新接取）
+    /// 重置任务
     /// </summary>
     public void ResetQuest(QuestData q)
     {

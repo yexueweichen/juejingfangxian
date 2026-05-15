@@ -26,8 +26,7 @@ public abstract class BaseManager<T> where T:class
                 {
                     if (instance == null)
                     {
-                        //instance = new T();
-                        //利用反射得到无参私有的构造函数 来用于对象的实例化
+                        //反射得到无参私有的构造函数
                         Type type = typeof(T);
                         ConstructorInfo info = type.GetConstructor(BindingFlags.Instance | BindingFlags.NonPublic,
                                                                     null,
@@ -38,7 +37,7 @@ public abstract class BaseManager<T> where T:class
                         else
                             Debug.LogError("没有得到对应的无参构造函数");
 
-                        //instance = Activator.CreateInstance(typeof(T), true) as T;
+                        
                     }
                 }
             }

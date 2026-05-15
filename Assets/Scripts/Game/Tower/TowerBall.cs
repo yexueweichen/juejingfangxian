@@ -19,6 +19,16 @@ public class TowerBall : MonoBehaviour
         target = targetMonster;
         lifeTime = 5f;
         isActive = true;
+        
+        // 重置缩放
+        transform.localScale = Vector3.one;
+    }
+
+    private void OnEnable()
+    {
+        // 确保从池取出时状态正确
+        isActive = false;
+        target = null;
     }
 
     void Update()
@@ -32,21 +42,20 @@ public class TowerBall : MonoBehaviour
             return;
         }
         
-        // 如果目标还存在，追踪目标
-        if (target != null && !target.isDead)
+        // 目标无效时立即回收
+        if (target == null || target.isDead)
         {
-            Vector3 dir = (target.transform.position - transform.position).normalized;
-            if (dir != Vector3.zero)
-            {
-                transform.forward = dir;
-            }
-            transform.position += dir * moveSpeed * Time.deltaTime;
+            ReturnToPool();
+            return;
         }
-        else
+        
+        // 追踪目标
+        Vector3 dir = (target.transform.position - transform.position).normalized;
+        if (dir != Vector3.zero)
         {
-            // 目标已死亡，按当前方向继续飞行
-            transform.position += transform.forward * moveSpeed * Time.deltaTime;
+            transform.forward = dir;
         }
+        transform.position += dir * moveSpeed * Time.deltaTime;
     }
 
     void OnTriggerEnter(Collider other)

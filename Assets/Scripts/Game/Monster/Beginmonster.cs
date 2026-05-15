@@ -21,7 +21,7 @@ public class Beginmonster : MonoBehaviour
 
     private void OnDestroy()
     {
-        // 当对象销毁时设置标记，LoopWalk 会检测并退出
+        // 当对象销毁时设置标记
         isDestroyed = true;
     }
 
@@ -37,7 +37,7 @@ public class Beginmonster : MonoBehaviour
                 if (anim == null) break;
             }
 
-            // 1. 朝左走（播放走路动画）
+            // 1. 朝左走
             anim.SetBool("walk", true);
             await UniTask.Delay((int)(walkDuration * 1000));
             if (isDestroyed) break;
@@ -47,7 +47,7 @@ public class Beginmonster : MonoBehaviour
             await UniTask.Delay((int)(waitDuration * 1000));
             if (isDestroyed) break;
 
-            // 3. 转身朝右（修改朝向，让下次走路朝右）
+            // 3. 转身朝右
             transform.rotation = Quaternion.Euler(0, 180, 0);
 
             // 4. 朝右走

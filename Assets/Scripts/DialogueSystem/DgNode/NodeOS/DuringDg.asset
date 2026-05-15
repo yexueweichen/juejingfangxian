@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DuringDg
   m_EditorClassIdentifier: 
   nodes:
-  - content: "\u52A0\u6CB9\uFF01\u8FD9\u4E2A\u6211\u4EEC\u4F1A\u5728\u8FD9\u7B49\u7740\u4F60\u51EF\u65CB\uFF01"
+  - content: "\u52A0\u6CB9\uFF0C\u6211\u4EEC\u4F1A\u5728\u8FD9\u91CC\u7B49\u4F60\u51EF\u65CB\uFF01"
     speaker: "\u957F\u8001"
     isChoice: 0
     choices: []

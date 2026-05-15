@@ -73,10 +73,10 @@ public class TowerPoint : MonoBehaviour
 
       // 记录当前塔的数据
        nowtowerinfo = info;
-       // 将 chooseIndex 映射到 0..(towerTips.Count-1) 的分组索引：id 1-3 => 0, 4-6 => 1, 7-9 => 2
+       // 将chooseIndex映射
        chooseIndex = (id - 1) / 3;
 
-      //塔建造完毕 更新游戏界面上的内容（始终更新当前点，让 UI 决定是否显示升级或隐藏按钮）
+      //塔建造完毕 更新游戏界面上的内容
        GamePanel panel = UIMgr.Instance.GetPanel<GamePanel>();
        if (panel != null)
        {

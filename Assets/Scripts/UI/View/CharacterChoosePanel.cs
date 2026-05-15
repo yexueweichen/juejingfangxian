@@ -57,7 +57,7 @@ public class CharacterChoosePanel : BasePanel
             moneyNmub.text = money.ToString();
     }
 
-    // EventCenter 推送：基础角色信息（名字/是否可购买/价格），视图据此更新按钮显示
+    // EventCenter 推送：基础角色信息，视图据此更新按钮显示
     private void OnUpdateRoleInfo(RoleInfos.RoleData role)
     {
         if (role == null) return;

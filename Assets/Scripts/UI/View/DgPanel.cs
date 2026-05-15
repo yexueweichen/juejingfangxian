@@ -16,7 +16,7 @@ public class DgPanel : BasePanel
 
     protected override void Init()
     {
-        // 初始化不隐藏，不做危险操作
+        
         if (continueButton != null)
         {
             continueButton.onClick.RemoveAllListeners();
@@ -24,7 +24,6 @@ public class DgPanel : BasePanel
         }
     }
 
-    // 【原始方法签名，完全兼容你的DgMgr】
     public void ShowSentence(string speaker, string content, Action onContinue)
     {
         ClearChoices();
@@ -41,7 +40,7 @@ public class DgPanel : BasePanel
             continueButton.onClick.AddListener(() => onContinue?.Invoke());
         }
 
-        // 空安全！有容器才隐藏，没有就跳过（修复你的报错）
+        // 空安全！有容器才隐藏，没有就跳过
         if (choiceContainer != null)
             choiceContainer.SetActive(false);
     }
@@ -59,7 +58,7 @@ public class DgPanel : BasePanel
         if (continueButton != null)
             continueButton.gameObject.SetActive(false);
 
-        // 空安全！有容器+有按钮预制体+有选项才生成
+        
         if (choiceContainer != null && choiceButtonPrefab != null && choices != null && choices.Count > 0)
         {
             choiceContainer.SetActive(true);
@@ -80,7 +79,7 @@ public class DgPanel : BasePanel
         }
     }
 
-    // 清空选项（空安全）
+    // 清空选项
     public void ClearChoices()
     {
         foreach (var go in _instancedChoices)
