@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class IKBoneSync : MonoBehaviour
@@ -28,7 +28,7 @@ public class IKBoneSync : MonoBehaviour
         }
     }
 
-    // 正确的IK操作应该在OnAnimatorIK中执行
+   
     private void OnAnimatorIK(int layerIndex)
     {
         // 同步右手
